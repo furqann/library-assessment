@@ -24,13 +24,25 @@
 
 Base url `http://localhost:8090/api/v1/library`
 
-#### Get All Books
+> #### Get All Books
 ###### Request
 `GET [BASE_URL]/books/all`
 ###### Response
-`200`
+Code: `200`\
+Body: 
+```json
+[
+	{
+		"id": 1,
+		"title": "5 AM Club",
+		"author": "Robert Sharma",
+		"isbn": "123-456-789",
+		"available": false
+	}
+]
+```
 
-#### Register Book
+> #### Register Book
 ###### Request
 `POST [BASE_URL]/books/register`
 
@@ -42,8 +54,20 @@ __Body__
 	"isbn": "123-456-789"
 }
 ```
+###### Response
+Code: 201\
+Body: 
+```json
+{
+	"id": 1,
+	"title": "5 AM Club",
+	"author": "Robert Sharma",
+	"isbn": "123-456-789",
+	"available": true
+}
+```
 
-#### Register Borrower
+>#### Register Borrower
 ###### Request
 `POST [BASE_URL]/borrower/register`
 
@@ -54,8 +78,17 @@ __Body:__
 	"email":"test@test.com"
 }
 ```
-
-#### Return Book
+###### Response
+Code: 200\
+Body:
+```json
+{
+	"id": 1,
+	"name": "Ahmad",
+	"email": "test@test.com"
+}
+```
+> #### Return Book
 ###### Request
 `POST [BASE_URL]/return/books/{bookId}/borrowers/{borrowerId}`
 
@@ -70,7 +103,7 @@ __Body:__
 }
 ```
 
-#### Borrow Book
+> #### Borrow Book
 ###### Request
 `POST [BASE_URL]/borrow/books/{bookId}/borrowers/{borrowerId}`
 
