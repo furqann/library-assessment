@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LibraryAssessmentApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LibraryAssessmentApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(LibraryAssessmentApplication.class, args);
+  }
 
 }
