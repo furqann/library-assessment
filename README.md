@@ -118,3 +118,6 @@ Body:
 	"message": "Successfully borrowed a book"
 }
 ```
+
+**Note**
+Insomina file can be imported into Insomia client for the testing of API.
