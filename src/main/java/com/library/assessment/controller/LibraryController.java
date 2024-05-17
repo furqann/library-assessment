@@ -4,12 +4,14 @@ import com.library.assessment.dto.BookDto;
 import com.library.assessment.dto.BorrowerDto;
 import com.library.assessment.entity.BookEntity;
 import com.library.assessment.entity.BorrowerEntity;
+import com.library.assessment.model.SuccessMessage;
 import com.library.assessment.service.BookService;
 import com.library.assessment.service.BorrowerService;
 import java.net.URI;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,4 +47,9 @@ public class LibraryController {
         .body(registeredBorrower);
   }
 
+  @PostMapping("/borrow/books/{bookId}/borrowers/{borrowerId}")
+  public ResponseEntity<SuccessMessage> borrowBook(@PathVariable Long bookId, @PathVariable Long borrowerId){
+    borrowerService.borrowBook(bookId, borrowerId);
+    return ResponseEntity.ok(new SuccessMessage("Successfully borrowed book"));
+  }
 }

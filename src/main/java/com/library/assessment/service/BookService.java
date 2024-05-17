@@ -10,4 +10,6 @@ public interface BookService {
   List<BookDto> getAllBooks();
 
   BookDto register(BookEntity book);
+
+  BookEntity getBookById(Long bookId);
 }

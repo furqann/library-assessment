@@ -10,6 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -60,7 +61,11 @@ public class BorrowerEntity {
     return books;
   }
 
-  public void setBooks(List<BookEntity> books) {
-    this.books = books;
+  public void addBook(BookEntity book) {
+    if (this.books == null){
+      this.books = new ArrayList<>();
+    }
+    book.setBorrower(this);
+    this.books.add(book);
   }
 }

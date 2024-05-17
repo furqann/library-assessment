@@ -44,4 +44,11 @@ public class BookServiceImpl implements BookService {
     }
     return MapperUtils.toBookDto(bookRepository.save(book));
   }
+
+  @Transactional(readOnly = true)
+  @Override
+  public BookEntity getBookById(Long bookId) {
+    return bookRepository.findByIdAndBorrowerNull(bookId)
+        .orElseThrow(() -> new LibraryException(HttpStatus.NOT_FOUND.value(), "Book not found or available"));
+  }
 }
