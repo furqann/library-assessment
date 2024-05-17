@@ -2,6 +2,7 @@ package com.library.assessment.service;
 
 import com.library.assessment.dto.BookDto;
 import com.library.assessment.entity.BookEntity;
+import com.library.assessment.entity.BorrowerEntity;
 import java.util.List;
 
 public interface BookService {
@@ -11,5 +12,8 @@ public interface BookService {
 
   BookDto register(BookEntity book);
 
-  BookEntity getBookById(Long bookId);
+  BookEntity getAvailableBookById(Long bookId);
+
+  BookEntity getBorrowedBookById(Long bookId, Long borrowerId);
+
 }

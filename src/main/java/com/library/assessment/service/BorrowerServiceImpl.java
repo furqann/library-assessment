@@ -31,9 +31,18 @@ public class BorrowerServiceImpl implements BorrowerService {
   @Transactional(rollbackFor = LibraryException.class)
   @Override
   public void borrowBook(Long bookId, Long borrowerId) {
-    BookEntity book = bookService.getBookById(bookId);
+    BookEntity book = bookService.getAvailableBookById(bookId);
     var borrower = getBorrowerNotFound(borrowerId);
     borrower.addBook(book);
+    repository.save(borrower);
+  }
+
+  @Transactional(rollbackFor = LibraryException.class)
+  @Override
+  public void returnBook(Long bookId, Long borrowerId) {
+    var borrower = getBorrowerNotFound(borrowerId);
+    var book = bookService.getBorrowedBookById(bookId, borrowerId);
+    borrower.removeBook(book);
     repository.save(borrower);
   }
 

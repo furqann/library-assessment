@@ -50,6 +50,12 @@ public class LibraryController {
   @PostMapping("/borrow/books/{bookId}/borrowers/{borrowerId}")
   public ResponseEntity<SuccessMessage> borrowBook(@PathVariable Long bookId, @PathVariable Long borrowerId){
     borrowerService.borrowBook(bookId, borrowerId);
-    return ResponseEntity.ok(new SuccessMessage("Successfully borrowed book"));
+    return ResponseEntity.ok(new SuccessMessage("Successfully borrowed a book"));
+  }
+
+  @PostMapping("/return/books/{bookId}/borrowers/{borrowerId}")
+  public ResponseEntity<SuccessMessage> returnBook(@PathVariable Long bookId, @PathVariable Long borrowerId){
+    borrowerService.returnBook(bookId, borrowerId);
+    return ResponseEntity.ok(new SuccessMessage("Book is successfully returned"));
   }
 }

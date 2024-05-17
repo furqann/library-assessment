@@ -9,4 +9,6 @@ public interface BorrowerService {
 
   void borrowBook(Long bookId, Long borrowerId);
 
+  void returnBook(Long bookId, Long borrowerId);
+
 }

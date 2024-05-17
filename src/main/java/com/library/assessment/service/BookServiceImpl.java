@@ -3,6 +3,7 @@ package com.library.assessment.service;
 import com.library.assessment.config.LibraryException;
 import com.library.assessment.dto.BookDto;
 import com.library.assessment.entity.BookEntity;
+import com.library.assessment.entity.BorrowerEntity;
 import com.library.assessment.mapper.MapperUtils;
 import com.library.assessment.repository.BookRepository;
 import java.util.List;
@@ -47,8 +48,14 @@ public class BookServiceImpl implements BookService {
 
   @Transactional(readOnly = true)
   @Override
-  public BookEntity getBookById(Long bookId) {
+  public BookEntity getAvailableBookById(Long bookId) {
     return bookRepository.findByIdAndBorrowerNull(bookId)
         .orElseThrow(() -> new LibraryException(HttpStatus.NOT_FOUND.value(), "Book not found or available"));
+  }
+
+  @Override
+  public BookEntity getBorrowedBookById(Long bookId, Long borrowerId) {
+    return bookRepository.findByIdAndBorrower_Id(bookId, borrowerId)
+        .orElseThrow(() ->  new LibraryException(HttpStatus.NOT_FOUND.value(), "No book found having borrower id " + borrowerId));
   }
 }

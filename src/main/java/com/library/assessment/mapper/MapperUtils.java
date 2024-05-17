@@ -13,7 +13,7 @@ public final class MapperUtils {
    * @return BookDto
    */
   public static BookDto toBookDto(final BookEntity book) {
-    return new BookDto(book.getId(), book.getTitle(), book.getAuthor(), book.getIsbn());
+    return new BookDto(book.getId(), book.getTitle(), book.getAuthor(), book.getIsbn(), book.getBorrower() == null);
   }
 
   /**

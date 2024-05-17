@@ -25,13 +25,14 @@ public class BorrowerEntity {
   @Column(name = "name")
   private String name;
 
+  //Email can be made unique to prevent duplication of borrowers
   @NotBlank(message = "email cannot be empty")
   @Email(message = "email address is not valid")
   @Column(name = "email")
   private String email;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "borrower")
-  private List<BookEntity> books;
+  private List<BookEntity> books = new ArrayList<>();
 
   public long getId() {
     return id;
@@ -62,10 +63,12 @@ public class BorrowerEntity {
   }
 
   public void addBook(BookEntity book) {
-    if (this.books == null){
-      this.books = new ArrayList<>();
-    }
     book.setBorrower(this);
     this.books.add(book);
+  }
+
+  public void removeBook(BookEntity book) {
+    book.setBorrower(null);
+    this.books.removeIf( b -> b.getId() == book.getId());
   }
 }
