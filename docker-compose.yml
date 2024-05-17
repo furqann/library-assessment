@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: root
+      POSTGRES_DB: lib_demo
+  app:
+    build: .
+    environment:
+      db_user: root
+      db_pass: 123456
+      db_url: jdbc:postgresql://db:5432/lib_demo
+    ports:
+      - "8090:8090"
+    depends_on:
+      - db
