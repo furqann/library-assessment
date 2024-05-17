@@ -1,0 +1,181 @@
+_type: export
+__export_format: 4
+__export_date: 2024-05-17T19:21:38.553Z
+__export_source: insomnia.desktop.app:v2023.5.8
+resources:
+  - _id: req_d63d57408a844c70b69f1062a5ab9be4
+    parentId: fld_0f98369682fc4e3380b723a7e370dbf4
+    modified: 1715971650061
+    created: 1715967155716
+    url: http://localhost:8090/api/v1/library/return/books/1/borrowers/1
+    name: returnBook
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1715967155716
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0f98369682fc4e3380b723a7e370dbf4
+    parentId: wrk_c51222a15b7143bdbe420aafbf2c56fc
+    modified: 1715962386446
+    created: 1715962386446
+    name: Library Demo
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1715962386447
+    _type: request_group
+  - _id: wrk_c51222a15b7143bdbe420aafbf2c56fc
+    parentId: null
+    modified: 1715954814248
+    created: 1715954814248
+    name: lib_assessment
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_0699d79d5adf41c594499cc53adc5205
+    parentId: fld_0f98369682fc4e3380b723a7e370dbf4
+    modified: 1715971628897
+    created: 1715966782421
+    url: http://localhost:8090/api/v1/library/borrow/books/1/borrowers/1
+    name: borrowBook
+    description: ""
+    method: POST
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1715966782421
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_57d541b0904845158766de04b4ea15e8
+    parentId: fld_0f98369682fc4e3380b723a7e370dbf4
+    modified: 1715968244940
+    created: 1715965084627
+    url: http://localhost:8090/api/v1/library/borrower/register
+    name: registerBorrower
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Ahmad",
+        	"email":"test@test.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1715965084627
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5d300a9393a344c48b7b8c2b0461d747
+    parentId: fld_0f98369682fc4e3380b723a7e370dbf4
+    modified: 1715964290999
+    created: 1715962909339
+    url: http://localhost:8090/api/v1/library/books/register
+    name: registerBook
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"title": "5 AM Club",
+        	"author": "Robert Sharma",
+        	"isbn": "123-456-789"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1715962909339
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_023198c8100149208f776599cbce4ca7
+    parentId: fld_0f98369682fc4e3380b723a7e370dbf4
+    modified: 1715971242573
+    created: 1715962389586
+    url: http://localhost:8090/api/v1/library/books/all
+    name: allBooks
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1715962389586
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_dc7dcaa92de7439eb367a6e7e85cfc50ef26cd4f
+    parentId: wrk_c51222a15b7143bdbe420aafbf2c56fc
+    modified: 1715954814260
+    created: 1715954814260
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1715954814260
+    _type: environment
+  - _id: jar_dc7dcaa92de7439eb367a6e7e85cfc50ef26cd4f
+    parentId: wrk_c51222a15b7143bdbe420aafbf2c56fc
+    modified: 1715954814264
+    created: 1715954814264
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_0616bb0080f54066b91601858d4c345e
+    parentId: wrk_c51222a15b7143bdbe420aafbf2c56fc
+    modified: 1715954814256
+    created: 1715954814256
+    fileName: New Document
+    contents: ""
+    contentType: yaml
+    _type: api_spec
